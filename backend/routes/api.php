@@ -1,6 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\V1\Auth\AuthController;
+use App\Http\Controllers\Api\V1\Hotel\HotelController;
+use App\Http\Controllers\Api\V1\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware(['auth:sanctum', 'json'])->group(function () {
+    Route::get('/user', UserController::class)->name('user');
+
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+Route::get('/hotels', HotelController::class)->name('hotels');
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
