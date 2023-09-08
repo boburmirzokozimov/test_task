@@ -1,7 +1,9 @@
 Before running application set environment variables both in frontend and backend folders.
 
 Me myself mainly focuses on the backend,I also added some basic authorization,in case it is needed,but did not implement
-it on frontend
+it on frontend as I think it is a bit troublesome for such a small project
+
+Though if I had a chance I'd use Inertia with Vue,as it is much easier to connect Vue with Laravel
 
 ## Project Setup For Backend
 
